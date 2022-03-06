@@ -1,22 +1,18 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { BeakerIcon, MenuIcon, ChevronRightIcon } from '@heroicons/react/solid'
+import SideBarIcon from './SideBarIcon'
+import { useAppDispatch, useAppSelector } from '../../redux/hooks'
+import { toggleIsMobileOpen, toggleIsOpen } from '../../redux/sidebar/sidebarSlice'
 
 const Sidebar = () => {
 
-    const [isOpen, setIsOpen] = useState(false)
-    const toggleIsOpen = () => {
-        setIsOpen(!isOpen)
-    }
-
-    const [isMobileOpen, setIsMobileOpen] = useState(false)
-    const toggleIsMobileOpen = () => {
-        setIsMobileOpen(!isMobileOpen)
-    }
+    const {isOpen, isMobileOpen} = useAppSelector((state) => state.sidebar)
+    const dispatch = useAppDispatch()
 
     return (
         <>
             {/* Mobile toggle */}
-            <button className="sidebar-mobile-toggle" onClick={toggleIsMobileOpen}>
+            <button className="sidebar-mobile-toggle" onClick={() => dispatch(toggleIsMobileOpen())}>
                 <MenuIcon className="h-8 w-8" />
             </button>
 
@@ -25,43 +21,17 @@ const Sidebar = () => {
 
                 {/* Sidebar open/close */}
                 <button className="sidebar-desktop-toggle"
-                    onClick={toggleIsOpen}>
+                    onClick={() => dispatch(toggleIsOpen())}>
                     <ChevronRightIcon className="h-4 w-4 text-white" />
                 </button>
 
                 <SideBarIcon icon={<BeakerIcon className="sidebar-icon" />}
-                    isOpen={isOpen} isMobileOpen={isMobileOpen} text="Baker" />
+                    text="Baker" />
 
             </div>
         </>
 
     )
 }
-
-interface SidebarRowProps {
-    icon: React.ComponentProps<'svg'>
-    text: string
-    isOpen: boolean
-    isMobileOpen: boolean
-};
-
-
-
-const SideBarIcon: React.FC<SidebarRowProps> = ({ icon, isOpen = false, isMobileOpen = false, text = 'tooltip 💡' }) => {
-    return (
-        <div className="h-16 text-white flex items-center group">
-            <div className="">
-                {icon}
-            </div>
-            <div className={`${isOpen ? 'opacity-100' : 'sm:opacity-0'} transition-opacity duration-300 `}>
-                {text}
-            </div>
-
-            <span className={`sidebar-tooltip ${ isOpen ? '' : 'sm:group-hover:scale-100'}`}>
-                {text}
-            </span>
-        </div>
-    )
-};
 
 export default Sidebar

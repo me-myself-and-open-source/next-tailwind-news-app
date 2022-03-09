@@ -1,12 +1,19 @@
 import { useTheme } from 'next-themes'
 import Head from 'next/head'
 import Image from 'next/image'
+import { useEffect, useState } from 'react'
 import { useAppSelector } from '../redux/hooks'
 import styles from '../styles/Home.module.css'
 
 const Home = () => {
+	const [mounted, setMounted] = useState(false)
+
 	const { theme, setTheme } = useTheme()
-	const {isOpen} = useAppSelector((state) => state.sidebar)
+	const { isOpen } = useAppSelector((state) => state.sidebar)
+
+	useEffect(() => setMounted(true), [])
+
+	if (!mounted) return null
 
 	return (
 		<div className={`${isOpen ? 'ml-64' : 'ml-12'} transition-all duration-300`}>

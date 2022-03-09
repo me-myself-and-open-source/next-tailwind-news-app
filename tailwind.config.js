@@ -1,4 +1,5 @@
 const colors = require('./styles/colors.ts')
+const overlay = require('./styles/overlay.ts')
 
 module.exports = {
 	content: [
@@ -9,6 +10,7 @@ module.exports = {
 		extend: {
 			colors: {
 				...colors,
+				overlay,
 				theme: {
 					bg: {
 						primary: 'var(--theme-background-primary)',
@@ -26,7 +28,10 @@ module.exports = {
 						link: 'var(--theme-label-link)',
 						invert: 'var(--theme-label-invert)',
 						bacon: 'var(--theme-label-bacon)',
-					  },
+					},
+					overlay: {
+						quaternary: 'var(--theme-overlay-quaternary)',
+					},
 				}
 			},
 			transitionProperty: {

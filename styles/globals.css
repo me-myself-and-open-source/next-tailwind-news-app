@@ -26,6 +26,8 @@
         --theme-label-link: theme('colors.water.80');
         --theme-label-invert: #ffffff;
         --theme-label-bun: theme('colors.bun.80');
+
+        --theme-overlay-quaternary: theme('colors.overlay.quaternary.pepper');
     }
 
     [data-theme='dark'] {
@@ -49,6 +51,8 @@
         --theme-label-link: theme('colors.water.20');
         --theme-label-invert: theme('colors.pepper.90');
         --theme-label-bun: theme('colors.bun.20');
+
+        --theme-overlay-quaternary: theme('colors.overlay.quaternary.white');
     }
 
 }
@@ -62,20 +66,24 @@
     }
 
     .sidebar {
-        @apply fixed top-12 left-0 h-screen flex flex-col shadow-lg 
+        @apply fixed sm:top-12 left-0 h-full sm:h-screen flex flex-col shadow-lg 
         transition-sidebar duration-300 
         w-12 bg-theme-bg-primary
         border-r border-r-theme-label-disabled
     }
 
     .sidebar-desktop-toggle {
-        @apply hidden absolute z-10 top-8 -right-3 h-6 w-6 rounded-full shadow-lg 
+        @apply hidden absolute z-10 top-8 -right-3 h-6 w-6 rounded-lg shadow-lg 
         sm:flex items-center justify-center 
-        bg-theme-bg-secondary
+        bg-theme-label-primary
     }
 
     .sidebar-mobile-toggle {
-        @apply sm:hidden absolute top-5 right-5 cursor-pointer
+        @apply sm:hidden cursor-pointer
+    }
+
+    .sidebar-overlay {
+        @apply fixed w-full h-full bg-theme-overlay-quaternary z-3 cursor-pointer inset-0
     }
 
     .sidebar-icon {

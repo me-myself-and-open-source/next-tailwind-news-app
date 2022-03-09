@@ -12,7 +12,7 @@ const SideBarIcon: React.FC<SidebarRowProps> = ({ icon, text, tooltip = text }) 
     const isOpen = useAppSelector((state) => state.sidebar.isOpen)
 
     return (
-        <div className="h-16 text-theme-label-primary flex items-center group">
+        <div className="text-theme-label-primary flex items-center h-12 cursor-pointer group">
             <div className="">
                 {icon}
             </div>

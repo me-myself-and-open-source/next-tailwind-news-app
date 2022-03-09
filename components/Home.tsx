@@ -1,12 +1,15 @@
 import { useTheme } from 'next-themes'
 import Head from 'next/head'
 import Image from 'next/image'
+import { useAppSelector } from '../redux/hooks'
 import styles from '../styles/Home.module.css'
 
 const Home = () => {
 	const { theme, setTheme } = useTheme()
+	const {isOpen} = useAppSelector((state) => state.sidebar)
+
 	return (
-		<div className="ml-12">
+		<div className={`${isOpen ? 'ml-64' : 'ml-12'} transition-all duration-300`}>
 
 			<div className={styles.container}>
 				<Head>

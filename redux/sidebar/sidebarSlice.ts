@@ -25,13 +25,13 @@ export const sidebarSlice = createSlice({
 			state.isMobileOpen = !state.isMobileOpen
 		},
 
-		setSidebarOpenTo: (state, action: PayloadAction<boolean>) => {
-			state.isOpen = action.payload
+		setSidebarMobileOpenTo: (state, action: PayloadAction<boolean>) => {
+			state.isMobileOpen = action.payload
 		},
 	},
 })
 
-export const { toggleIsOpen, toggleIsMobileOpen, setSidebarOpenTo } = sidebarSlice.actions
+export const { toggleIsOpen, toggleIsMobileOpen, setSidebarMobileOpenTo } = sidebarSlice.actions
 
 export const selectSidebarIsOpen = (state: RootState) => state.sidebar.isOpen
 export const selectSidebarIsMobileOpen = (state: RootState) => state.sidebar.isMobileOpen

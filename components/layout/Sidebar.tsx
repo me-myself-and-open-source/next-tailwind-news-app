@@ -1,32 +1,50 @@
 import React from 'react'
-import { BeakerIcon, MenuIcon, ChevronRightIcon } from '@heroicons/react/solid'
+import { BeakerIcon, ChevronRightIcon } from '@heroicons/react/solid'
 import SideBarIcon from './SideBarIcon'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
-import { toggleIsMobileOpen, toggleIsOpen } from '../../redux/sidebar/sidebarSlice'
+import { toggleIsOpen } from '../../redux/sidebar/sidebarSlice'
 
 const Sidebar = () => {
 
-    const {isOpen, isMobileOpen} = useAppSelector((state) => state.sidebar)
+    const { isOpen, isMobileOpen } = useAppSelector((state) => state.sidebar)
     const dispatch = useAppDispatch()
 
     return (
         <>
-            {/* Mobile toggle */}
-            <button className="sidebar-mobile-toggle" onClick={() => dispatch(toggleIsMobileOpen())}>
-                <MenuIcon className="h-8 w-8" />
-            </button>
-
             {/* Sidebar */}
-            <div className={`sidebar ${isOpen ? 'w-64' : 'w-64 sm:w-12'} ${isMobileOpen ? '' : '-left-64 sm:left-0'}`}>
+            <div className={`sidebar sm:py-4 space-y-4 sm:space-y-12 ${isOpen ? 'w-64' : 'w-64 sm:w-12'} ${isMobileOpen ? '' : '-left-64 sm:left-0'}`}>
 
                 {/* Sidebar open/close */}
                 <button className="sidebar-desktop-toggle"
                     onClick={() => dispatch(toggleIsOpen())}>
-                    <ChevronRightIcon className={`h-4 w-4 text-theme-label-primary ${isOpen ? 'rotate-180' : 'rotate-0'}`} />
+                    <ChevronRightIcon className={`h-4 w-4 text-theme-label-invert ${isOpen ? 'rotate-180' : 'rotate-0'}`} />
                 </button>
 
-                <SideBarIcon icon={<BeakerIcon className="sidebar-icon" />}
-                    text="Baker" />
+                <ul className="">
+
+                    <SideBarIcon icon={<BeakerIcon className="sidebar-icon" />}
+                        text="Baker" />
+                    <SideBarIcon icon={<BeakerIcon className="sidebar-icon" />}
+                        text="Baker" />
+                    <SideBarIcon icon={<BeakerIcon className="sidebar-icon" />}
+                        text="Baker" />
+                    <SideBarIcon icon={<BeakerIcon className="sidebar-icon" />}
+                        text="Baker" />
+
+                </ul>
+                <ul className="">
+
+                    <SideBarIcon icon={<BeakerIcon className="sidebar-icon" />}
+                        text="Baker" />
+                    <SideBarIcon icon={<BeakerIcon className="sidebar-icon" />}
+                        text="Baker" />
+                    <SideBarIcon icon={<BeakerIcon className="sidebar-icon" />}
+                        text="Baker" />
+                    <SideBarIcon icon={<BeakerIcon className="sidebar-icon" />}
+                        text="Baker" />
+
+                </ul>
+
 
             </div>
         </>

@@ -1,8 +1,10 @@
+import { useTheme } from 'next-themes'
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
 const Home = () => {
+	const { theme, setTheme } = useTheme()
 	return (
 		<div className="ml-12">
 
@@ -14,6 +16,18 @@ const Home = () => {
 				</Head>
 
 				<main className={styles.main}>
+					<h1 className={styles.title}>
+						<div>
+							<span>Switch to: </span>
+							{
+								theme == 'dark'
+									? <button onClick={() => setTheme('light')}>Light Mode</button>
+									: <button onClick={() => setTheme('dark')}>Dark Mode</button>
+							}
+
+						</div>
+					</h1>
+
 					<h1 className={styles.title}>
 						Welcome to <a href="https://nextjs.org">Next.js!</a>
 					</h1>

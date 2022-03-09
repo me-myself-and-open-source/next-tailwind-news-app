@@ -25,6 +25,7 @@
 		"**/*.tsx"
 	],
 	"exclude": [
+		"styles/colors.ts",
 		"node_modules"
 	]
 }

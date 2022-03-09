@@ -22,7 +22,7 @@ const Sidebar = () => {
                 {/* Sidebar open/close */}
                 <button className="sidebar-desktop-toggle"
                     onClick={() => dispatch(toggleIsOpen())}>
-                    <ChevronRightIcon className="h-4 w-4 text-white" />
+                    <ChevronRightIcon className={`h-4 w-4 text-theme-label-primary ${isOpen ? 'rotate-180' : 'rotate-0'}`} />
                 </button>
 
                 <SideBarIcon icon={<BeakerIcon className="sidebar-icon" />}

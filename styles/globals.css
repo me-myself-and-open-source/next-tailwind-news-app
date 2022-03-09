@@ -2,18 +2,76 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+
+    :root {
+        --theme-active: theme('colors.pepper.10')33;
+        --theme-focus: theme('colors.blueCheese.60');
+        --theme-float: theme('colors.pepper.10')14;
+        /* stylelint-disable-next-line unit-no-unknown */
+        --theme-hover: theme('colors.pepper.10')1F;
+      
+        --theme-background-primary: #ffffff;
+        --theme-background-secondary: theme('colors.salt.10');
+        --theme-background-tertiary: theme('colors.salt.20');
+        --theme-background-bacon: theme('colors.bacon.20');
+        --theme-background-bun: theme('colors.bun.20');
+        --theme-background-onion: theme('colors.onion.20');
+      
+        --theme-label-primary: theme('colors.pepper.90');
+        --theme-label-secondary: theme('colors.pepper.50');
+        --theme-label-tertiary: theme('colors.pepper.10');
+        --theme-label-quaternary: theme('colors.pepper.10')A3;
+        --theme-label-disabled: theme('colors.pepper.10')52;
+        --theme-label-link: theme('colors.water.80');
+        --theme-label-invert: #ffffff;
+        --theme-label-bun: theme('colors.bun.80');
+    }
+
+    [data-theme='dark'] {
+        --theme-active: theme('colors.salt.90')33;
+        --theme-focus: theme('colors.blueCheese.40');
+        --theme-float: theme('colors.salt.90')14;
+        /* stylelint-disable-next-line unit-no-unknown */
+        --theme-hover: theme('colors.salt.90')1F;
+        
+        --theme-background-primary: theme('colors.pepper.90');
+        --theme-background-secondary: theme('colors.pepper.70');
+        --theme-background-tertiary: theme('colors.pepper.80');
+        --theme-background-bun: theme('colors.bun.80');
+        --theme-background-onion: theme('colors.onion.80');
+        
+        --theme-label-primary: #ffffff;
+        --theme-label-secondary: theme('colors.salt.50');
+        --theme-label-tertiary: theme('colors.salt.90');
+        --theme-label-quaternary: theme('colors.salt.90')A3;
+        --theme-label-disabled: theme('colors.salt.90')52;
+        --theme-label-link: theme('colors.water.20');
+        --theme-label-invert: theme('colors.pepper.90');
+        --theme-label-bun: theme('colors.bun.20');
+    }
+
+}
+
 @layer components {
 
+    .navbar {
+        @apply flex items-center justify-between 
+        w-full fixed top-0 px-8 h-12 
+        bg-theme-bg-primary border-b border-b-theme-label-disabled 
+    }
+
     .sidebar {
-        @apply fixed top-0 left-0 h-screen flex flex-col shadow-lg 
+        @apply fixed top-12 left-0 h-screen flex flex-col shadow-lg 
         transition-sidebar duration-300 
-        bg-gray-900 w-12
+        w-12 bg-theme-bg-primary
+        border-r border-r-theme-label-disabled
     }
 
     .sidebar-desktop-toggle {
         @apply hidden absolute z-10 top-8 -right-3 h-6 w-6 rounded-full shadow-lg 
         sm:flex items-center justify-center 
-        bg-gray-700
+        bg-theme-bg-secondary
     }
 
     .sidebar-mobile-toggle {
@@ -21,13 +79,13 @@
     }
 
     .sidebar-icon {
-        @apply h-8 w-8 bg-gray-700 rounded-full p-2 mx-2
+        @apply h-8 w-8 bg-theme-bg-secondary rounded-full p-2 mx-2
     }
 
     .sidebar-tooltip {
         @apply absolute w-auto p-2 m-2 min-w-max left-14 
         text-xs font-bold 
-        text-white bg-gray-900 
+        text-theme-label-primary bg-theme-bg-primary 
         rounded-md shadow-md
         transition-all duration-100 scale-0 origin-left
     }

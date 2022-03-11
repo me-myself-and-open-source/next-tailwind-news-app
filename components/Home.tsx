@@ -41,10 +41,6 @@ const Home = () => {
 						</div>
 					</h1>
 
-					<h1 className={styles.title}>
-						Welcome to <a href="https://nextjs.org">Next.js!</a>
-					</h1>
-
 					<div className="w-full flex gap-4 flex-wrap"></div>
 					<div className="w-full flex gap-4 flex-wrap">
 

@@ -28,6 +28,11 @@
         --theme-label-bun: theme('colors.bun.80');
 
         --theme-overlay-quaternary: theme('colors.overlay.quaternary.pepper');
+
+        --theme-divider-primary: theme('colors.pepper.10');
+        --theme-divider-secondary: theme('colors.pepper.10')66;
+        --theme-divider-tertiary: theme('colors.pepper.10')33;
+        --theme-divider-quaternary: theme('colors.pepper.10')14;
     }
 
     [data-theme='dark'] {
@@ -53,6 +58,11 @@
         --theme-label-bun: theme('colors.bun.20');
 
         --theme-overlay-quaternary: theme('colors.overlay.quaternary.white');
+
+        --theme-divider-primary: theme('colors.salt.90');
+        --theme-divider-secondary: theme('colors.salt.90')66;
+        --theme-divider-tertiary: theme('colors.salt.90')33;
+        --theme-divider-quaternary: theme('colors.salt.90')14;
     }
 
 }
@@ -61,15 +71,15 @@
 
     .navbar {
         @apply flex items-center justify-between 
-        w-full fixed top-0 px-8 h-12 
-        bg-theme-bg-primary border-b border-b-theme-label-disabled 
+        w-full fixed top-0 px-8 h-12 z-20
+        bg-theme-bg-primary border-b border-b-theme-divider-tertiary 
     }
 
     .sidebar {
         @apply fixed sm:top-12 left-0 h-full sm:h-screen flex flex-col shadow-lg 
         transition-sidebar duration-300 
-        w-12 bg-theme-bg-primary
-        border-r border-r-theme-label-disabled
+        w-12 bg-theme-bg-primary z-30 
+        border-r border-r-theme-divider-tertiary
     }
 
     .sidebar-desktop-toggle {

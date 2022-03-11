@@ -14,7 +14,7 @@ const Main: NextPage = () => {
 			{
 				isMobileOpen &&
 				<div onClick={ () => dispatch(setSidebarMobileOpenTo(false)) }
-					className={`sm:hidden fixed w-full h-full bg-theme-overlay-quaternary z-3 cursor-pointer inset-0`}></div>
+					className={`sm:hidden fixed w-full h-full bg-theme-overlay-quaternary z-3 cursor-pointer inset-0 z-10`}></div>
 			}
 			<Navbar />
 			<div className="flex yinyleon">

@@ -7,6 +7,7 @@ module.exports = {
 		"./components/**/*.{js,ts,jsx,tsx}",
 	],
 	theme: {
+		namedGroups: ["icon"],
 		extend: {
 			colors: {
 				...colors,
@@ -32,13 +33,22 @@ module.exports = {
 					overlay: {
 						quaternary: 'var(--theme-overlay-quaternary)',
 					},
+					divider: {
+						primary: 'var(--theme-divider-primary)',
+						secondary: 'var(--theme-divider-secondary)',
+						tertiary: 'var(--theme-divider-tertiary)',
+						quaternary: 'var(--theme-divider-quaternary)',
+					},
 				}
 			},
 			transitionProperty: {
-				sidebar: 'width, left,right',
+				sidebar: 'width, left, right',
+				width: 'width, margin',
 				visibility: 'visibility',
 			}
 		},
 	},
-	plugins: [],
+	plugins: [
+		require("tailwindcss-named-groups"),
+	],
 }

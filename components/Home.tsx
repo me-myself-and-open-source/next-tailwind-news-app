@@ -23,7 +23,7 @@ const Home = () => {
 				<Head>
 					<title>Daily Dev Clone</title>
 					<meta name="description" content="DailyDev clone using Tailwind, NextJS and ReduxToolkit" />
-					<meta property="og:image" content="/preview.png" />
+					<meta property="og:image" content="https://next-tailwind-news-app.netlify.app/preview.png" />
 					<link rel="icon" href="/favicon.ico" />
 				</Head>
 

@@ -1,12 +1,17 @@
 import { useTheme } from 'next-themes'
 import Head from 'next/head'
 import Image from 'next/image'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useAppSelector } from '../redux/hooks'
 import styles from '../styles/Home.module.css'
+import { NewsItem } from '../types/news-item'
 import Card from './layout/Card'
 
-const Home = () => {
+interface HomeProps {
+	news: [NewsItem] | undefined
+}
+
+const Home: React.FC<HomeProps> = ({news}: HomeProps) => {
 	const [mounted, setMounted] = useState(false)
 
 	const { theme, setTheme } = useTheme()
@@ -43,24 +48,12 @@ const Home = () => {
 
 					<div className="w-full flex gap-4 flex-wrap"></div>
 					<div className="w-full flex gap-4 flex-wrap">
-
-						<Card />
-						<Card />
-						<Card />
-						<Card />
-						<Card />
-						<Card />
-						<Card />
-						<Card />
-						<Card />
-						<Card />
-						<Card />
-						<Card />
-						<Card />
-						<Card />
-						<Card />
-						<Card />
-						<Card />
+						{
+							news &&
+							news.map((item) => {
+								return <Card item={item} key={item.guid} />
+							})
+						}
 
 					</div>
 

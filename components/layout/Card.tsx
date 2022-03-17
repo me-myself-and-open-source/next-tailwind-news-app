@@ -10,7 +10,7 @@ const Card = ({item}: CardProps) => {
 	return (
 		<div className="relative min-w-[280px] max-w-[350px] justify-between flex-1 flex flex-col p-2 rounded-2xl bg-theme-bg-secondary border border-theme-divider-tertiary hover:border-theme-divider-secondary shadow-md group">
 
-			<a href={item.link} target="_blank" className="absolute inset-0 w-full h-full focus:outline-none"></a>
+			<a href={item.link} target="_blank" rel="noreferrer" className="absolute inset-0 w-full h-full focus:outline-none"></a>
 
 			{/* Card Header */}
 			<div className="flex flex-col mx-4">

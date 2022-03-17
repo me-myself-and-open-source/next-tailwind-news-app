@@ -7,8 +7,6 @@ interface CardProps {
 }
 
 const Card = ({item}: CardProps) => {
-	console.log(item);
-	
 	return (
 		<div className="relative min-w-[280px] max-w-[350px] justify-between flex-1 flex flex-col p-2 rounded-2xl bg-theme-bg-secondary border border-theme-divider-tertiary hover:border-theme-divider-secondary shadow-md group">
 
@@ -41,7 +39,7 @@ const Card = ({item}: CardProps) => {
 			{/* Card Image */}
 			<div className=" h-40 my-2 rounded-xl relative overflow-hidden">
 				<img className="absolute block inset-0 w-full h-full m-auto object-cover"
-					src={item.mediacontent[0].$.url}
+					src={item.mediacontent ? item.mediacontent[0].$.url : 'https://uploads-ssl.webflow.com/5e5e26b57a149fc28773c703/5eaf3dc2f728bb4e333a1546_hacker-news-logo.jpeg'}
 					alt="Article image here" />
 			</div>
 

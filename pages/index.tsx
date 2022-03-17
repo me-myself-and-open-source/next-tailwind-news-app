@@ -37,11 +37,11 @@ export const getServerSideProps = async () => {
 	console.log(url);
 
 	const news = await axios.get(url);
-	console.log(news.data.items);
+	console.log(news.data);
 
 	return {
 		props: {
-			news: news.data.items
+			news: news.data
 		}
 	}
 

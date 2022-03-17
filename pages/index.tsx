@@ -34,10 +34,8 @@ const Main: NextPage<MainProps> = ({news}: MainProps) => {
 export const getServerSideProps = async () => {
 
 	const url = process.env.SITE_URL + '/api/news';
-	console.log(url);
 
 	const news = await axios.get(url);
-	console.log(news.data);
 
 	return {
 		props: {
